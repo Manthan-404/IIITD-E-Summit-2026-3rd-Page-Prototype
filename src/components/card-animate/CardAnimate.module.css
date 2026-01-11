@@ -1,0 +1,188 @@
+.container {
+  --ka-bg-deep: #1A1025;
+  --ka-bg-surface: #2A1B3D;
+  --ka-frame-base: #36254E;
+  --ka-frame-highlight: #5D437E;
+  --ka-frame-shadow: #1F122E;
+  --ka-accent-gem: #FF7043;
+  --ka-accent-primary: #7C4DFF;
+  --ka-text-main: #FFFFFF;
+  --ka-text-muted: #B39DDB;
+  
+  width: 100%;
+  height: 100vh;
+  background-color: var(--ka-bg-deep);
+  background-image: radial-gradient(circle at 50% 50%, #2a1b3d 0%, #150c20 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+.scene {
+  perspective: 1200px;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardWrapper {
+  position: absolute;
+  width: 300px;
+  height: 480px;
+  will-change: transform, opacity;
+  /* SLIDE DURATION: Increased to 1.2s */
+  transition: 
+    transform 2.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 2.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    z-index 0s linear 0.6s; /* Adjusted z-index delay to half of 1.2s */
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.cardFace {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: var(--ka-bg-surface);
+  border: 4px solid var(--ka-frame-base);
+  border-top-color: var(--ka-frame-highlight);
+  border-left-color: var(--ka-frame-highlight);
+  border-bottom-color: var(--ka-frame-shadow);
+  border-right-color: var(--ka-frame-shadow);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.cardFaceFront {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+}
+
+.imageArea {
+  height: 60%;
+  width: 100%;
+  background: #000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.imageArea img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: overlay;
+  opacity: 0.9;
+}
+
+.contentArea {
+  padding: 20px;
+  text-align: center;
+  color: var(--ka-text-main);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contentArea h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.contentArea p {
+  color: var(--ka-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 10px 0;
+}
+
+.cardFaceBack {
+  transform: rotateY(0deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: 
+    radial-gradient(circle at center, transparent 30%, var(--ka-bg-deep) 100%),
+    repeating-linear-gradient(45deg, rgba(124, 77, 255, 0.05) 0px, transparent 2px, transparent 10px);
+}
+
+.gem {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.categoryLabel {
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  color: var(--ka-text-main);
+  text-transform: uppercase;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.controlsContainer {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  z-index: 20;
+}
+
+.navBtn {
+  background: transparent;
+  border: 1px solid var(--ka-frame-highlight);
+  color: var(--ka-text-muted);
+  padding: 12px 24px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+.navBtn:hover {
+  background: var(--ka-accent-primary);
+  color: #FFF;
+  box-shadow: 0 0 15px var(--ka-accent-primary);
+  border-color: var(--ka-accent-primary);
+}
+
+.swordBase {
+  width: 18px; 
+  height: 220px;
+  background: linear-gradient(to bottom, #cfd8dc, #607d8b);
+  box-shadow: 4px 0 10px rgba(0,0,0,0.5);
+  border-right: 1px solid #90a4ae;
+  clip-path: polygon(50% 0%, 100% 15%, 85% 100%, 15% 100%, 0% 15%);
+}
+
+.swordRight {
+  box-shadow: -4px 0 10px rgba(0,0,0,0.5);
+  border-left: 1px solid #90a4ae;
+  border-right: none;
+  transform: scaleX(-1);
+}
+
+.swordInlay {
+  position: absolute;
+  top: 160px;
+  left: -4px;
+  width: 26px;
+  height: 6px;
+  background: #546e7a;
+  border-radius: 2px;
+}

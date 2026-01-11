@@ -1,45 +1,16 @@
-# IIITD E-Summit 2026 - 3rd Page Prototype
+# React + Vite
 
-This repository contains the high-fidelity animation prototype designed for the **3rd Scroll Page** of the **IIITD E-Summit 2026** website.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-It features a custom-built, interactive 3D card carousel with complex SVG animations (Katanas, Gems, Gears) powered by React and Framer Motion.
+Currently, two official plugins are available:
 
-## 🚀 Overview
-* **Tech Stack:** React, Framer Motion, CSS Modules.
-* **Key Animation:** "Scissor Snip" sword reveal sequence with synchronized gear rotation and card flipping physics.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## ✨ Features
+## React Compiler
 
-* **Custom SVG Assets:** Hand-coded SVGs for Katanas (with curved blades & hamon details), Hexagonal Gems, and Sci-Fi Gears. (can be modified)
-* **Sequenced Animation:**
-    * State 1: Locked/Covered state with breathing gear animations.
-    * State 2 (Interaction): Swords rotate and "snip" (135° → 110° → 135°).
-    * State 3: Card flips 180° to reveal content.
-* **Responsive Design:** Fully fluid layout using Framer Motion's `layout` prop.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 🛠️ Installation & Run
+## Expanding the ESLint configuration
 
-1.  **Clone the repository**
-    ```bash
-    git clone <your-repo-url>
-    ```
-
-2.  **Install dependencies**
-    ```bash
-    npm install framer-motion lucide-react
-    ```
-
-3.  **Start the development server**
-    ```bash
-    npm start
-    ```
-
-## 📂 Project Structure
-
-* `CarouselCard.jsx` - Handles the 3D flip logic and layout.
-* `CardBack.jsx` - Contains the complex "Cover" animation (Swords/Gears).
-* `assets.jsx` - Stores the custom SVG component definitions.
-* `CardAnimate.module.css` - Scoped styles for the 3D perspective and gradients.
-
----
-*Prototype developed for IIITD E-Summit 2026.*
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
